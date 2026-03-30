@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Report Found Item</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="topnav">
+      <a href="home.html" class="nav-logo">Home</a>
+      <a href="lost.html">Lost</a>
+      <a href="found.html">Found</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="page-container">
+    <h2 class="page-header green-bg white-text">Items Found Page</h2>
+
+    <form id="foundForm" class="card-grid" enctype="multipart/form-data" autocomplete="off">
+      <div class="bar-section teal-bg">
+        <label class="label white-text">Finder name</label>
+        <input name="full Name" required type="text" placeholder="e.g. John Smith" />
+      </div>
+
+      <div class="bar-section purple-bg">
+        <label class="label white-text">Sex</label>
+        <div class="inline-group">
+          <label><input type="radio" name="Sex" value="female" required /> Female</label>
+          <label><input type="radio" name="Sex" value="male" /> Male</label>
+          <label><input type="radio" name="Sex" value="other" /> Other</label>
+        </div>
+      </div>
+
+      <div class="bar-section orange-bg">
+        <label class="label white-text">Age</label>
+<select id="finderAge" name="finderAge">
+          <option value="">Select age range</option>
+          <option>Under 18</option>
+          <option>18–24</option>
+          <option>25–34</option>
+          <option>35–44</option>
+          <option>45+</option>
+        </select>
+      </div>
+      <div class="bar-section darkblue-bg">
+        <label class="label white-text">Phone number</label>
+        <input name="phone" type="tel" placeholder="+233 2 000 0000" pattern="[\d+\-\s()]{6,}" />
+      </div>
+
+      <div class="bar-section green-bg">
+        <label class="label white-text">Email</label>
+        <input name="email" type="email" placeholder="you@school.edu" />
+      </div>
+
+
+      <div class="search-card">
+  <div class="search-input-wrapper">
+    <input id="foundSearch" type="search" placeholder="Search by description, college, or department" />
+    <span class="search-icon">🔍</span>
+  </div>
+      </div>
+
+      
+  <!-- ✅ IMAGE UPLOAD -->
+  <div class="bar-section green-bg">
+    <label class="label">Upload image of item found</label>
+    <input type="file" name="image" accept="image/*"  id="foundUpload"/>
+  </div>
+
+      <div class="bar-section red-bg">
+        <label class="label white-text">Where item was found</label>
+        <input name="foundPlace" type="text" placeholder="e.g. Library — 2nd floor" />
+      </div>
+
+       <div class="bar-section orange-bg">
+        <label class="label white-text">Select your college</label>
+        <div class="nested-selects">
+<select id="foundCollege" name="college" required>
+            <option value="">Choose college...</option>
+            <option>College of Science</option>
+            <option>College of Humanities and Social Sciences</option>
+            <option>College of Art and Built Environment</option>
+            <option>College of Engineering</option>
+            <option>College of Health Sciences</option>
+          </select>
+          <select id="foundDepartment" name="department" required>
+            <option value="">Choose department...</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="bar-section brown-bg">
+        <label class="label white-text">Found by</label>
+<select id="foundByType" name="foundByType">
+          <option value="student">Student</option>
+          <option value="lecturer">Lecturer</option>
+          <option value="staff">Staff</option>
+          <option value="other">Other / Non-student</option>
+        </select>
+      </div>
+
+      <!-- NEW ID SECTION - StudentID or StaffID (always visible, mutually exclusive) -->
+      <div class="bar-section lightgray-bg" id="idSection">
+        <div style="display:flex; gap:20px; flex-wrap:wrap;">
+          <div>
+            <label class="label black-text">
+              <input type="radio" name="idType" value="student" id="studentRadio"> Student ID
+            </label>
+            <input type="text" id="studentIdInput" name="studentId" placeholder="e.g. 210...." style="background:white; width:200px;" />
+          </div>
+          <div>
+            <label class="label black-text">
+              <input type="radio" name="idType" value="staff" id="staffRadio"> Staff ID
+            </label>
+            <input type="text" id="staffIdInput" name="staffId" placeholder="e.g. KNUST-STAFF-001" style="background:white; width:200px;" />
+          </div>
+        </div>
+      </div>
+
+
+      <div class="bar-section purple2-bg">
+
+        <label class="label white-text">Description of item found</label>
+        <textarea name="foundDescription" rows="4" placeholder="Describe the found item" required></textarea>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Submit Found Report</button>
+        <button type="button" id="clearFound" class="btn btn-outline">Clear Stored Found Items</button>
+      </div>
+    </form>
+
+    <section id="foundList" class="list-section">
+      <h3>Found items</h3>
+      <div id="foundItemsContainer"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <small>© <span id="year3"></span> University Lost &amp; Found</small>
+  </footer>
+
+<script src="script (1).js"></script>
+</body>
+</html>

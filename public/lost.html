@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Report Lost Item</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="topnav">
+      <a href="home.html" class="nav-logo">Home</a>
+      <a href="lost.html">Lost</a>
+      <a href="found.html">Found</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="page-container">
+    <h2 class="page-header blue-bg white-text">Lost Items Page</h2>
+
+    <form id="lostForm" class="card-grid" autocomplete="off">
+      <div class="bar-section teal-bg">
+        <label class="label white-text">Full name</label>
+        <input name="fullname" required type="text" placeholder="e.g. Jane Doe" />
+      </div>
+
+      <div class="bar-section purple-bg">
+        <label class="label white-text">Sex</label>
+        <div class="inline-group">
+          <label><input type="radio" name="sex" value="female" required /> Female</label>
+          <label><input type="radio" name="sex" value="male" /> Male</label>
+          <label><input type="radio" name="sex" value="other" /> Other</label>
+        </div>
+      </div>
+
+      <div class="bar-section orange-bg">
+        <label class="label white-text">Select your college</label>
+        <div class="nested-selects">
+          <select id="lostCollege" required>
+            <option value="">Choose college...</option>
+            <option>College of Science</option>
+            <option>College of Humanities and Social Sciences</option>
+            <option>College of Art and Built Environment</option>
+            <option>College of Engineering</option>
+            <option>College of Health Sciences</option>
+          </select>
+          <select id="lostDepartment" required>
+            <option value="">Choose department...</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- STAFF SECTION - Always visible, radio exclusive like found.html -->
+      <div class="bar-section yellow-bg">
+        <div style="display:flex; gap:20px; flex-wrap:wrap;">
+          <div>
+            <label class="label white-text">
+              <input type="radio" name="reporterType" value="student" checked> Student
+            </label>
+            <label class="label white-text">
+              <input type="radio" name="reporterType" value="staff"> University Staff
+            </label>
+          </div>
+        </div>
+        <div>
+          <label class="label white-text">Student ID (if student)</label>
+          <input name="studentId" type="text" placeholder="e.g. KNUST/2023/SCI/1234" style="background:white; width:250px;" />
+        </div>
+        <div>
+          <label class="label white-text">Staff Department (if staff - type name)</label>
+          <input name="staffDept" type="text" placeholder="e.g. IT Services" style="background:white; width:250px;" />
+          <label class="label white-text">Staff ID (if staff)</label>
+          <input name="staffId" type="text" placeholder="e.g. KNUST-STAFF-001" style="background:white; width:250px;" />
+        </div>
+
+      </div>
+
+
+      <div class="bar-section darkblue-bg">
+
+        <label class="label white-text">Phone number</label>
+        <input name="phone" type="tel" placeholder="+233 2 000 0000" pattern="[\d+\-\s()]{6,}" />
+      </div>
+
+      <div class="bar-section green-bg">
+        <label class="label white-text">Email</label>
+        <input name="email" type="email" placeholder="you@school.edu" />
+      </div>
+
+      <div class="bar-section red-bg">
+        <label class="label white-text">Description of item lost</label>
+        <textarea name="description" rows="4" placeholder="Describe the lost item" required></textarea>
+      </div>
+      
+  <!-- ✅ IMAGE UPLOAD -->
+  <div class="bar-section green-bg">
+    <label class="label">Upload image</label>
+    <input type="file" name="image" accept="image/*" />
+  </div>
+
+      <div class="bar-section pink-bg">
+        <label class="label white-text">Residence (select for on-campus)</label>
+        <select id="hostelSelect">
+          <option value="">Not on campus / select if in traditional hostel</option>
+          <option>Unity Hall</option>
+          <option>Queens Hall</option>
+          <option>Katanga Hall</option>
+          <option>Chancellors hall</option>
+           <option>Independence Hall</option>
+            <option>Republic Hall</option>
+             <option>SRC Hall </option>
+        </select>
+      </div>
+
+      <div class="bar-section brown-bg">
+        <label class="label white-text">If not residing on campus, enter your off-campus address</label>
+        <input id="offCampusInput" name="offcampus" type="text" placeholder="e.g. Madina Road, Accra" />
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Submit Lost Report</button>
+        <button type="reset" class="btn btn-outline">Reset</button>
+      </div>
+    </form>
+
+    <section id="lostList" class="list-section">
+      <h3>Previously reported lost items</h3>
+      <div id="lostItemsContainer"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <small>© <span id="year2"></span> University Lost &amp; Found</small>
+  </footer>
+
+<script src="script (1).js"></script>
+</body>
+</html>
