@@ -116,11 +116,10 @@ body {
 }
 
 
-
-/* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Segoe UI", Arial, sans-serif;
+/* Subheading */
+.subheading {
+  margin-bottom: 18px;
+  color: #586274;
+  font-size: 0.95em;
 }
+
